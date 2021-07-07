@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    {% if user.is_authenticated %}
+        <p>Hello {{ user.username }}</p>
+        <p>Thank You for Login..  {{ user.first_name }} {{ user.last_name }}</p>
+        <p>{{ user.email }}</p>
+        <a href="{% url 'logout' %}"><button>Logout</button></a>
+
+
+
+    {% else %}      
+        <div class="form-class forms">
+            <ul>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+        </div>
+        {% endif %}
+</div>
+{% endblock %}
