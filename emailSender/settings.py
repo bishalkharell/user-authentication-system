@@ -131,6 +131,7 @@ LOGOUT_REDIRECT_URL = 'homepage'
 
 # Email Settings.....
 
+
 '''
 
 EMAIL_HOST = ' Your Email Host EG: GMAIL, HOTMAIl'
@@ -142,5 +143,7 @@ EMAIL_USE_SSL = True / False
 
 # It is optional
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# If any confusion refer to instructions.txt
 
 '''

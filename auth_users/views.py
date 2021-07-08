@@ -16,21 +16,19 @@ def login_view(request):
 
 # Registering User
 def register(request):
+    form = RegisterForm()
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            new_user = form.save()
+            form.save()
             
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             login(request,user)
-            send_email(request)
-            return redirect('/')
+            # send_email(request)
+            return redirect('/')     
         
-        context = {'form':form}
-    else:       
-        form = RegisterForm()
-        context = {'form':form}
-        return render(request,'registration/register.html',context)
+    context = {'form':form}
+    return render(request,'registration/register.html',context)
 
 
 # Send Email when User is registered.
@@ -39,7 +37,7 @@ def send_email(request):
     print(users.email)
     send_mail(
     'Register Notification',
-    'Hello, ' + request.user.username + ' Register is completed. Thank You.',
+    'Hello ' + request.user.username + ', Register is completed. Thank You.',
     'youremail@something.com',
     [users.email],
     fail_silently=False,

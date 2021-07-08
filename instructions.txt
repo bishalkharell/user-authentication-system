@@ -3,17 +3,28 @@
 
     Go to emailSender/Settings and configure with requirements...
 
-    EMAIL_HOST = ' Your Email Host EG: GMAIL, HOTMAIl'
-    EMAIL_PORT = HOST EMAIL PORT HERE
-    EMAIL_HOST_USER = 'FROM: your email '
-    EMAIL_HOST_PASSWORD = 'Password : EMAIL Password'  
-    EMAIL_USE_TLS = True / False
-    EMAIL_USE_SSL = True / False
+    Example with gmail..
+        EMAIL_HOST = 'smtp.gmail.com'
+        EMAIL_PORT = 587
+        EMAIL_HOST_USER = 'youremailhere'  #example -->something@gmail.com / something@hotmail.com
+        EMAIL_HOST_PASSWORD = ' Your Email Password'  
+        EMAIL_USE_TLS = True
+        EMAIL_USE_SSL = False
 
-    # It is optional
-    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    Depending on the host you are using settings might be different.
+    Make sure 'less secure app' is on in gmail to get access.
+
+
+
+
 
 2. Views configure
     Visit auth_users/views --> send_email() function
     Replace 'youremail@something.com' with original Email
-    It also can be modified depending on requirements
+    Others also can be modified depending on requirements....
+
+3. Initializing email properties
+    uncomment send_email(request) from register() function.
+
+
+
